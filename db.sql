@@ -8,9 +8,9 @@ CREATE TABLE books
 
 INSERT INTO books (isbn, title, author, price)
 VALUES
-  ('978-1503261969', 'Emma', 'Jayne Austen', 9.44),
-  ('978-1505255607', 'The Time Machine', 'H. G. Wells', 5.99),
-  ('978-1503379640', 'The Prince', 'Niccolò Machiavelli', 6.99);
+  ('978-1-78712-349-6', 'Go: Building Web Applications', 'Nathan Kozyra, Nathan Kozyra', 0.1),
+  ('978-5-97060-477-9', 'GO на практике', 'Мэтт Батчер, Мэтт Фарина', 0.1),
+  ('978-5-94074-854-0', 'Программирование на Go', 'Марк Саммерфильд', 0.1);
 
 ALTER TABLE books
   ADD PRIMARY KEY (isbn);
