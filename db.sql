@@ -1,6 +1,6 @@
 CREATE TABLE books
 (
-  isbn   char(14)     NOT NULL,
+  isbn   char(20)     NOT NULL,
   title  varchar(255) NOT NULL,
   author varchar(255) NOT NULL,
   price  decimal(5,2) NOT NULL
