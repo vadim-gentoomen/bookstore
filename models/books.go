@@ -5,10 +5,10 @@ import (
 )
 
 type Book struct {
-	Isbn   string `sql:"primary_key"`
-	Title  string
-	Author string
-	Price  float32
+	Isbn   string  `json:"isbn",sql:"primary_key"`
+	Title  string  `json:"title"`
+	Author string  `json:"author"`
+	Price  float32 `json:"price"`
 }
 
 func AllBooks(db *sql.DB) ([]*Book, error) {

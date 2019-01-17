@@ -2,7 +2,9 @@ package main
 
 import (
 	"bookstore/models"
+	"bytes"
 	"database/sql"
+	"encoding/json"
 	"fmt"
 	_ "github.com/lib/pq"
 	"log"
@@ -41,6 +43,10 @@ func booksIndex(env *Env) http.Handler {
 		for _, bk := range bks {
 			fmt.Fprintf(w, "%s, %s, %s, %.2f rub.\n", bk.Isbn, bk.Title, bk.Author, bk.Price)
 		}
+
+		//w.Header().Set("Content-Type", "application/json; charset=utf-8")
+		//foo_marshalled, err := json.Marshal(bks)
+		//fmt.Fprint(w, string(foo_marshalled))
 	})
 }
 
@@ -105,4 +111,14 @@ func booksCreate(env *Env) http.Handler {
 
 		fmt.Fprintf(w, "Book %s created successfully (%d row affected)\n", isbn, rowsAffected)
 	})
+}
+
+func StructToJSON(data interface{}) ([]byte, error) {
+	buf := new(bytes.Buffer)
+
+	if err := json.NewEncoder(buf).Encode(data); err != nil {
+		return nil, err
+	}
+
+	return buf.Bytes(), nil
 }
